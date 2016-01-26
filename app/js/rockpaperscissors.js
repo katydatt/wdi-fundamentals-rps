@@ -22,14 +22,13 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    var move;
-    var x;
+   
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    if (move == x) {
+    if (move === x) {
     console.log(x);}
-    else (move == null) {
+    else if (move === null) {
     console.log('getInput()');
     }
     return 'getInput()'; 
@@ -39,12 +38,10 @@ function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-  var move;
-  var x;
   
-   if (move == x) {
+   if (move === x) {
        console.log(x);}
-  else (move == null) {
+  else if (move === null) {
       console.log('randomPlay()');
     } 
     return 'randomPlay()'; 
@@ -52,8 +49,7 @@ function getComputerMove(move) {
 
 function getWinner(playerMove,computerMove) {
     var winner;
-    var playerMove;
-    var computerMove;
+    
     
     if (playerMove === computerMove) {
     console.log("It's a tie!");
@@ -87,8 +83,17 @@ function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
-    return [playerWins, computerWins];
-}
+     while (playerWins < 5 && computerWins < 5) {
+        var playerMove = getPlayerMove();
+         var computerMove = getComputerMove();
+         var winner = getWinner(playerMove, computerMove);
+         if (winner === 'player') {playerWins++}
+         else {computerWins++}
+         console.log("Player chose " + playerMove + " while Computer chose " + computerMove);
+         console.log("The score is " + playerWins + " to " + computerWins + "\n");
+     }
+     return [playerWins, computerWins];
+ 
+};
+
 
